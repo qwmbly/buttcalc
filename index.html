@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Many Can I Fit In My Butt</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>💩 How Many Can I Fit In My Butt?</h1>
+
+  <section>
+    <h2>Select an object:</h2>
+    <select id="object-select"></select>
+    <button onclick="calculateFromPreset()">Calculate</button>
+  </section>
+
+  <section>
+    <h2>Or enter custom dimensions:</h2>
+    <input type="number" id="length" placeholder="Length (cm)" />
+    <input type="number" id="width" placeholder="Width (cm)" />
+    <input type="number" id="height" placeholder="Height (cm)" />
+    <button onclick="calculateCustom()">Calculate</button>
+  </section>
+
+  <div id="result"></div>
+</body>
+</html>
