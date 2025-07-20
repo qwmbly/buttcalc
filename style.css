@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 2em;
+  background: #ffe4e1;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+input, select, button {
+  margin: 0.5em;
+  padding: 0.5em;
+}
