@@ -137,10 +137,13 @@ function calculateFromPreset() {
   const dims = objectData[category][object];
   const volume = dims.l * dims.w * dims.h;
   const buttVolume = getRectalVolume();
-  const count = Math.floor(buttVolume / volume);
+  const rawCount = buttVolume / adjustedVolume;
+  const fullCount = Math.floor(rawCount);
+  const message = rawCount < 1
+    ? `Only ${rawCount.toFixed(2)} ${object}(s) could fit.`
+    : `${fullCount} full ${object}(s) could fit (${rawCount.toFixed(2)} by volume).`;
 
-  output.innerText = `💥 Estimated: ${count} ${object}(s) can fit in your butt.`;
-}
+  output.innerText = `💥 Estimated: ${message}`;
 
 function calculateCustom() {
   const l = parseFloat(document.getElementById("length").value);
