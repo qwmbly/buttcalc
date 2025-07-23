@@ -1,3 +1,4 @@
+// Object data
 const objectData = {
   "🍕 Food": {
     "Banana": { l: 18, w: 4, h: 3 },
@@ -145,7 +146,9 @@ function setRandomDisclaimer() {
   const base = "⚠️ All calculations are based on approximate volume only.";
   const random = disclaimerLines[Math.floor(Math.random() * disclaimerLines.length)];
   const disclaimerElement = document.getElementById("disclaimer");
-  disclaimerElement.innerText = `${base} ${random}`;
+  if (disclaimerElement) {
+    disclaimerElement.innerText = `${base} ${random}`;
+  }
 }
 
 window.onload = () => {
@@ -209,6 +212,7 @@ function calculateFromPreset() {
     : `${fullCount} full ${object}(s) could fit (${rawCount.toFixed(2)} by volume).`;
 
   output.innerText = `💥 Estimated: ${message}`;
+  setRandomDisclaimer();
 }
 
 function calculateCustom() {
@@ -229,10 +233,11 @@ function calculateCustom() {
 
   const rawCount = buttVolume / adjustedVolume;
   const fullCount = Math.floor(rawCount);
-  
+
   const message = rawCount < 1
     ? `Only ${rawCount.toFixed(2)} of your custom object could fit.`
     : `${fullCount} full object(s) could fit (${rawCount.toFixed(2)} by volume).`;
 
   output.innerText = `🧮 Estimated: ${message}`;
+  setRandomDisclaimer();
 }
