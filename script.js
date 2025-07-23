@@ -90,6 +90,7 @@ const objectData = {
 
 window.onload = () => {
   populateCategorySelect();
+  setRandomDisclaimer();
 };
 
 function populateCategorySelect() {
