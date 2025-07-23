@@ -136,14 +136,19 @@ function calculateFromPreset() {
 
   const dims = objectData[category][object];
   const volume = dims.l * dims.w * dims.h;
+  const packingEfficiency = 0.6;
+  const adjustedVolume = volume / packingEfficiency;
   const buttVolume = getRectalVolume();
+
   const rawCount = buttVolume / adjustedVolume;
   const fullCount = Math.floor(rawCount);
+
   const message = rawCount < 1
     ? `Only ${rawCount.toFixed(2)} ${object}(s) could fit.`
     : `${fullCount} full ${object}(s) could fit (${rawCount.toFixed(2)} by volume).`;
 
   output.innerText = `💥 Estimated: ${message}`;
+}
 
 function calculateCustom() {
   const l = parseFloat(document.getElementById("length").value);
@@ -157,8 +162,16 @@ function calculateCustom() {
   }
 
   const volume = l * w * h;
+  const packingEfficiency = 0.6;
+  const adjustedVolume = volume / packingEfficiency;
   const buttVolume = getRectalVolume();
-  const count = Math.floor(buttVolume / volume);
 
-  output.innerText = `🧮 Estimated: ${count} of your custom object could fit.`;
+  const rawCount = buttVolume / adjustedVolume;
+  const fullCount = Math.floor(rawCount);
+
+  const message = rawCount < 1
+    ? `Only ${rawCount.toFixed(2)} of your custom object could fit.`
+    : `${fullCount} full object(s) could fit (${rawCount.toFixed(2)} by volume).`;
+
+  output.innerText = `🧮 Estimated: ${message}`;
 }
