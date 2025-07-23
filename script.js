@@ -6,7 +6,11 @@ const objectData = {
   "iPhone": { l: 14.7, w: 7.1, h: 0.7 }
 };
 
-const averageRectalVolume = 600; // ml
+function getRectalVolume() {
+  const select = document.getElementById("stretch-level");
+  return parseInt(select.value, 10);
+}
+
 
 window.onload = () => {
   const select = document.getElementById("object-select");
@@ -36,7 +40,7 @@ function calculateCustom() {
     return;
   }
 
-  const vol = l * w * h;
-  const count = Math.floor(averageRectalVolume / vol);
+  const volume = getRectalVolume();
+  const count = Math.floor(volume / vol);
   document.getElementById("result").innerText = `Roughly ${count} of your custom object could fit.`;
 }
