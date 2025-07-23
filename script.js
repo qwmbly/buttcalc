@@ -26,7 +26,7 @@ const objectData = {
   },
   "🧸 Toys": {
     "Bouncy Ball": { l: 3.5, w: 3.5, h: 3.5 },
-    "Dice": { l: 1.6, w: 1.6, h: 1.6 },
+    "Die (d6)": { l: 1.6, w: 1.6, h: 1.6 },
     "Fidget Spinner": { l: 7, w: 7, h: 1.5 },
     "Funko Pop": { l: 9, w: 6, h: 6 },
     "LEGO Brick (2x4)": { l: 3.2, w: 1.6, h: 1 },
@@ -240,4 +240,21 @@ function calculateCustom() {
 
   output.innerText = `🧮 Estimated: ${message}`;
   setRandomDisclaimer();
+}
+
+ function feelingLucky() {
+  const categories = Object.keys(objectData);
+  const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+
+  const objects = Object.keys(objectData[randomCategory]);
+  const randomObject = objects[Math.floor(Math.random() * objects.length)];
+
+  const categorySelect = document.getElementById("category-select");
+  const objectSelect = document.getElementById("object-select");
+
+  categorySelect.value = randomCategory;
+  populateObjectSelect();
+  objectSelect.value = randomObject;
+
+  calculateFromPreset();
 }
