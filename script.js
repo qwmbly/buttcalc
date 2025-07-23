@@ -169,6 +169,66 @@ function calculateCustom() {
   const rawCount = buttVolume / adjustedVolume;
   const fullCount = Math.floor(rawCount);
 
+  const disclaimerLines = [
+  "Actual results may vary based on flexibility, shame, and Newtonian physics.",
+  "Actual results may vary based on hydration level, moral fortitude, and moon phase.",
+  "Actual results may vary based on posture, panic, and prayer.",
+  "Actual results may vary based on object texture, your last meal, and if Mercury is in retrograde.",
+  "Actual results may vary based on personal ambition and available lube.",
+  "Actual results may vary based on how much you believe in yourself.",
+  "Actual results may vary based on intestinal negotiations.",
+  "Actual results may vary based on your browser history.",
+  "Actual results may vary based on whether your mom walks in.",
+  "Actual results may vary based on pressure, friction, and divine intervention.",
+  "Actual results may vary based on stretch level and emotional stability.",
+  "Actual results may vary based on training montage duration.",
+  "Actual results may vary based on sheer spite.",
+  "Actual results may vary based on unholy curiosity.",
+  "Actual results may vary based on your internet provider.",
+  "Actual results may vary based on TikTok trends.",
+  "Actual results may vary based on the will of the gods.",
+  "Actual results may vary based on the presence of witnesses.",
+  "Actual results may vary based on the density of your sins.",
+  "Actual results may vary based on your browser plugins.",
+  "Actual results may vary based on your D&D constitution score.",
+  "Actual results may vary based on seasonal allergies.",
+  "Actual results may vary based on caffeine intake.",
+  "Actual results may vary based on whether or not it's a full moon.",
+  "Actual results may vary based on how bad you want it.",
+  "Actual results may vary based on gravitational anomalies.",
+  "Actual results may vary based on reality being a simulation.",
+  "Actual results may vary based on the alignment of your chakras.",
+  "Actual results may vary based on whether you're being dared.",
+  "Actual results may vary based on Bluetooth signal strength.",
+  "Actual results may vary based on the square root of regret.",
+  "Actual results may vary based on which Taylor Swift era you're in.",
+  "Actual results may vary based on what you just Googled.",
+  "Actual results may vary based on local ordinances.",
+  "Actual results may vary based on the butt gods' favor.",
+  "Actual results may vary based on IRS scrutiny.",
+  "Actual results may vary based on inflation (both kinds).",
+  "Actual results may vary based on inner peace and fiber intake.",
+  "Actual results may vary based on your Enneagram type.",
+  "Actual results may vary based on legal advice received on Reddit.",
+  "Actual results may vary based on AI hallucinations.",
+  "Actual results may vary based on the square footage of your shame.",
+  "Actual results may vary based on buttstock futures volatility.",
+  "Actual results may vary based on USB port compatibility.",
+  "Actual results may vary based on the number of tabs you have open.",
+  "Actual results may vary based on how many times you've done this.",
+  "Actual results may vary based on your zodiac rising sign.",
+  "Actual results may vary based on ghost approval.",
+  "Actual results may vary based on the speed of the wind.",
+  "Actual results may vary based on how long you hold your breath."
+];
+
+function setRandomDisclaimer() {
+  const base = "⚠️ All calculations are based on approximate volume only.";
+  const random = disclaimerLines[Math.floor(Math.random() * disclaimerLines.length)];
+  const disclaimerElement = document.getElementById("disclaimer");
+  disclaimerElement.innerText = `${base} ${random}`;
+}
+  
   const message = rawCount < 1
     ? `Only ${rawCount.toFixed(2)} of your custom object could fit.`
     : `${fullCount} full object(s) could fit (${rawCount.toFixed(2)} by volume).`;
